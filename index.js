@@ -66,10 +66,13 @@ const GPSState: GPSStateType = {
 	AUTHORIZED_WHENINUSE: GPSStateNative.AUTHORIZED_WHENINUSE,
 
 	openAppDetails: () => {
-		GPSStateNative.openSettings(true)
+		
+		if(isDroid)GPSStateNative.openSettings(true);
+		else GPSStateNative.openSettings();
 	},
 	openLocationSettings: () => {
-		GPSStateNative.openSettings(false)
+		if (isDroid) GPSStateNative.openSettings(false);
+		else GPSStateNative.openSettings();
 	},
 	isMarshmallowOrAbove: () => {
 		return _isMarshmallowOrAbove
